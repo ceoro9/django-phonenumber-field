@@ -36,6 +36,9 @@ class PhoneNumber(phonenumbers.PhoneNumber):
                            keep_raw_input=True, numobj=phone_number_obj)
         return phone_number_obj
 
+    def __str__(self):
+        return self.raw_input
+
     def __unicode__(self):
         format_string = getattr(settings, 'PHONENUMBER_DEFAULT_FORMAT', 'E164')
         fmt = self.format_map[format_string]
